@@ -1,13 +1,15 @@
 class Drops {
     constructor(x, y) {
         var options = {
-
+            frcition: 0.1,
+            restitution: 0.8
         }
         this.radius = 7;
-        this.rain = Matter.body.circle(x, y, this.radius, options);
+        this.rain = Bodies.circle(x, y, this.radius, options);
         World.add(world, this.rain);
     }
     displayDrop() {
+        var pos = this.rain.position;
         fill("blue");
         ellipseMode(CENTER);
         ellipse(pos.x, pos.y, this.radius, this.radius);
